@@ -8,6 +8,6 @@ export const NavBarLinks: INavLink[] = [
   {
     imgURL: '/assets/icons/search.svg',
     route: '/search',
-    label: 'Search Plugins',
+    label: 'Search Packages',
   },
 ];

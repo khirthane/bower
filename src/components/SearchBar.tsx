@@ -32,7 +32,7 @@ const SearchBar = ({ onSearch, isLoading }: SearchProps) => {
             type='search'
             id='search-plugins'
             className='formControl searchbar'
-            placeholder='search-plugins'
+            placeholder='Search...'
             value={query}
             onChange={handleChange}
             required

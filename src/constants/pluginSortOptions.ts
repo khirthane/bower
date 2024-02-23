@@ -5,7 +5,7 @@ export const pluginSortOptions: ISelect[] = [
     value: '',
   },
   {
-    label: 'sourceRank',
+    label: 'SourceRank',
     value: 'rank',
   },
   {

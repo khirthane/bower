@@ -66,6 +66,7 @@ select {
   border-radius: 5px;
   display: block;
   padding: 10px;
+  min-width: 180px;
   &:focus {
     border-color: var(--blue);
   }

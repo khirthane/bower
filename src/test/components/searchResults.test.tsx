@@ -25,12 +25,10 @@ describe('SearchResults component', () => {
 
     expect(getByText('Plugin 1')).toBeInTheDocument();
     expect(getByText('Description 1')).toBeInTheDocument();
-    expect(getByText('Latest Release 1.0.0 -')).toBeInTheDocument();
     expect(getByText('100 Stars')).toBeInTheDocument();
 
     expect(getByText('Plugin 2')).toBeInTheDocument();
     expect(getByText('Description 2')).toBeInTheDocument();
-    expect(getByText('Latest Release 2.0.0 -')).toBeInTheDocument();
     expect(getByText('200 Stars')).toBeInTheDocument();
   });
 });

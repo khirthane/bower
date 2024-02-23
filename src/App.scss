@@ -1,0 +1,80 @@
+@import 'utils/styles/_color.scss';
+
+body {
+  color: var(--brown);
+}
+
+button.btn {
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 8px 20px;
+  border-radius: 5px;
+  &:hover {
+    background-color: var(--blue-light);
+  }
+  &:disabled {
+    background-color: var(--medium-grey);
+    cursor: not-allowed;
+  }
+}
+
+.btnIcon {
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  padding: 6px 15px;
+  &:hover {
+    background-color: var(--medium-grey);
+  }
+  &:disabled {
+    background-color: var(--light-grey);
+    cursor: not-allowed;
+  }
+}
+.card {
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+
+  .cardName {
+    color: var(--blue);
+  }
+}
+.formControl {
+  border: 1px solid var(--light-grey);
+  font-size: 16px;
+  border-radius: 5px;
+  display: block;
+  padding: 14px 12px;
+  width: 100%;
+  outline-offset: 0 !important;
+  &:focus {
+    border-color: var(--blue);
+  }
+}
+select {
+  background-image: url('/assets/icons/select.svg');
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-color: var(--white);
+  appearance: none;
+}
+.select {
+  border: 1px solid var(--light-grey);
+  font-size: 14px;
+  border-radius: 5px;
+  display: block;
+  padding: 10px;
+  &:focus {
+    border-color: var(--blue);
+  }
+}
+.searchContainer {
+  position: relative;
+}
+.searchBtn {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}

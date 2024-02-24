@@ -2,14 +2,15 @@ import axios from 'axios';
 
 const API_KEY = 'eab3e6914c9724a6f315ece0e0db32b5';
 const URI = `https://libraries.io/api`;
-export type RecordUnknownList = Record<string, string | number | boolean | string[]>[];
+export type IRecordUnknown = Record<string, string | number | boolean | string[]>;
+export type IRecordUnknownList = IRecordUnknown[];
 
 export const searchPlugins = async (
   text: string,
   page: number,
   pageSize: number,
   sort: string,
-): Promise<RecordUnknownList> => {
+): Promise<IRecordUnknownList> => {
   try {
     const { data } = await axios.get(`${URI}/search`, {
       params: {

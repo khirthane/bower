@@ -1,18 +1,33 @@
 import { readabletime } from '../readableTime';
 
-describe('readabletime', () => {
-  it('should return the correct time difference in years', () => {
-    // Test for more than a year difference
-    expect(readabletime('2019-01-01')).toBe('5 years ago');
+describe('readable time', () => {
+  it('should return correct time for seconds', () => {
+    const currentDate = new Date();
+    const dateString = new Date(currentDate.getTime() - 7000).toISOString();
+    expect(readabletime(dateString)).toEqual('7 seconds ago');
   });
 
-  it('should return the correct time difference in months', () => {
-    // Test for more than a month difference
-    expect(readabletime('2022-08-01')).toBe('1 years ago');
+  it('should return correct time for minutes', () => {
+    const currentDate = new Date();
+    const dateString = new Date(currentDate.getTime() - 900000).toISOString();
+    expect(readabletime(dateString)).toEqual('15 minutes ago');
   });
 
-  it('should return the correct time difference in days', () => {
-    // Test for more than a day difference
-    expect(readabletime('2024-02-21')).toBe('2 days ago');
+  it('should return correct time for hours', () => {
+    const currentDate = new Date();
+    const dateString = new Date(currentDate.getTime() - 43200000).toISOString();
+    expect(readabletime(dateString)).toEqual('12 hours ago');
+  });
+
+  it('should return correct time for days', () => {
+    const currentDate = new Date();
+    const dateString = new Date(currentDate.getTime() - 172800000).toISOString();
+    expect(readabletime(dateString)).toEqual('2 days ago');
+  });
+
+  it('should return correct time for months', () => {
+    const currentDate = new Date();
+    const dateString = new Date(currentDate.getTime() - 5184000000).toISOString();
+    expect(readabletime(dateString)).toEqual('2 months ago');
   });
 });

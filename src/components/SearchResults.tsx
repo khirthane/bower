@@ -22,12 +22,12 @@ const SearchResults = ({ plugins }: SearchResultsProps) => {
           <div className='cardName text-xl'>{plugin.name}</div>
           <div className='cardTitle text-s'>{plugin.description}</div>
           <div className='releaseVersion flex justify-between text-xs opacity-70'>
-            <div>
+            <div className='releaseDate'>
               Latest Release {plugin.latest_release_number}
               {' - '}
               {readabletime(plugin.latest_release_published_at as string)}
             </div>
-            <div>{readableClount(plugin.stars as number)} Stars</div>
+            <div className='stars'>{readableClount(plugin.stars as number)} Stars</div>
           </div>
         </div>
       ))}

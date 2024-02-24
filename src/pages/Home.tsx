@@ -1,7 +1,7 @@
 const Home = () => {
   return (
-    <div className='flex h-screen'>
-      <h2 className='m-auto text-2xl'>Welcome to Bower.io</h2>
+    <div className='flex justify-center items-center h-full'>
+      <h2 className='text-3xl'>Welcome to Bower.io</h2>
     </div>
   );
 };

@@ -36,7 +36,7 @@ button.btn {
   padding: 10px;
   margin: 10px 0;
 
-  .cardName {
+  .packageName {
     color: var(--blue);
   }
 }
@@ -78,4 +78,10 @@ select {
   position: absolute;
   right: 6px;
   top: 6px;
+}
+.downloadPackage {
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 8px 20px;
+  border-radius: 5px;
 }

@@ -1,5 +1,5 @@
+import intl from '@/utils/locales/en.json';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-
 type SearchProps = {
   onSearch: (query: string) => void;
   isLoading: boolean;
@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch, isLoading }: SearchProps) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!query) return;
+    if (query.trim() === '') return;
     onSearch(query);
   };
 
@@ -32,15 +32,14 @@ const SearchBar = ({ onSearch, isLoading }: SearchProps) => {
             type='search'
             id='search-plugins'
             className='formControl searchbar'
-            placeholder='Search...'
+            placeholder={intl.searchPlaceholder}
             value={query}
             onChange={handleChange}
             required
             disabled={loading}
-            data-testid='Search Plugins'
           />
           <button type='submit' data-testid='Search' className='btn searchBtn' disabled={loading}>
-            Search
+            {intl.search}
           </button>
         </div>
       </form>

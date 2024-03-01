@@ -1,23 +1,48 @@
 import SearchBar from '@/components/SearchBar';
-import { fireEvent, render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+
+const mockOnSearch = jest.fn();
 
 describe('SearchBar component', () => {
   it('renders the search input and button', () => {
-    const mockOnSearch = jest.fn();
-    const { getByTestId } = render(<SearchBar onSearch={mockOnSearch} isLoading={false} />);
+    const { getByPlaceholderText, getByText } = render(
+      <SearchBar onSearch={mockOnSearch} isLoading={false} />,
+    );
 
-    expect(getByTestId('Search')).toBeTruthy();
-    expect(getByTestId('Search Plugins')).toBeTruthy();
+    const searchInput = getByPlaceholderText('Search...');
+    const searchButton = getByText('Search');
+
+    expect(searchInput).toBeInTheDocument();
+    expect(searchButton).toBeInTheDocument();
   });
 
-  it('calls onSearch prop with query when form is submitted', () => {
-    const onSearchMock = jest.fn();
-    const { getByTestId } = render(<SearchBar onSearch={onSearchMock} isLoading={false} />);
-    const input = getByTestId('Search Plugins');
-    const button = getByTestId('Search');
-    fireEvent.change(input, { target: { value: 'test query' } });
-    fireEvent.click(button);
-    expect(onSearchMock).toHaveBeenCalledWith('test query');
+  it('updates the query state on input change', () => {
+    const { getByPlaceholderText } = render(
+      <SearchBar onSearch={mockOnSearch} isLoading={false} />,
+    );
+
+    const searchInput = getByPlaceholderText('Search...');
+
+    fireEvent.change(searchInput, { target: { value: 'test query' } });
+
+    expect(searchInput).toHaveValue('test query');
+  });
+
+  it('calls onSearch prop with query when form is submitted', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <SearchBar onSearch={mockOnSearch} isLoading={false} />,
+    );
+
+    const searchInput = getByPlaceholderText('Search...');
+    const searchButton = getByText('Search');
+
+    fireEvent.change(searchInput, { target: { value: 'test' } });
+    fireEvent.click(searchButton);
+
+    await waitFor(() => {
+      expect(mockOnSearch).toHaveBeenCalledWith('test');
+    });
   });
 
   it('does not call onSearch prop when form is submitted with empty query', () => {
@@ -26,5 +51,17 @@ describe('SearchBar component', () => {
     const button = getByTestId('Search');
     fireEvent.click(button);
     expect(onSearchMock).not.toHaveBeenCalled();
+  });
+
+  it('disables input and button when loading', () => {
+    const { getByPlaceholderText, getByText } = render(
+      <SearchBar onSearch={mockOnSearch} isLoading={true} />,
+    );
+
+    const searchInput = getByPlaceholderText('Search...');
+    const searchButton = getByText('Search');
+
+    expect(searchInput).toBeDisabled();
+    expect(searchButton).toBeDisabled();
   });
 });

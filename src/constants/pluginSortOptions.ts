@@ -1,35 +1,37 @@
 import { ISelect } from '@/types';
+import intl from '@/utils/locales/en.json';
+
 export const pluginSortOptions: ISelect[] = [
   {
-    label: 'Relevance',
+    label: intl.relevance,
     value: '',
   },
   {
-    label: 'SourceRank',
+    label: intl.sourceRank,
     value: 'rank',
   },
   {
-    label: 'Stars',
+    label: intl.stars,
     value: 'stars',
   },
   {
-    label: 'Dependents',
+    label: intl.dependents,
     value: 'dependents_count',
   },
   {
-    label: 'Most Used',
+    label: intl.mostUsed,
     value: 'dependent_repos_count',
   },
   {
-    label: 'Latest Release',
+    label: intl.latestRelease,
     value: 'latest_release_published_at',
   },
   {
-    label: 'Contributers',
+    label: intl.contributers,
     value: 'contributions_count',
   },
   {
-    label: 'Newest',
+    label: intl.newest,
     value: 'created_at',
   },
 ];

@@ -1,5 +1,6 @@
 import { readableClount } from '@/utils/lib/readableCount';
 import { readabletime } from '@/utils/lib/readableTime';
+import intl from '@/utils/locales/en.json';
 import { IRecordUnknownList } from '@/utils/services/searchApi';
 import { useEffect, useState } from 'react';
 
@@ -23,13 +24,13 @@ const SearchResults = ({ plugins }: SearchResultsProps) => {
           <div className='cardTitle text-s'>{plugin.description}</div>
           <div className='flex justify-between'>
             <div className='releaseDate text-xs opacity-70'>
-              Latest Release {plugin.latest_release_number}
+              {intl.latestRelease} {plugin.latest_release_number}
               {' - '}
               {readabletime(plugin.latest_release_published_at as string)}
             </div>
             <div className='stars flex gap-1 text-xs opacity-70'>
               <img src='/assets/icons/star.svg' width={12} />
-              {readableClount(plugin.stars as number)} Stars
+              {readableClount(plugin.stars as number)} {intl.stars}
             </div>
           </div>
         </div>

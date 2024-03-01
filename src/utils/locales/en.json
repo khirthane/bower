@@ -1,0 +1,21 @@
+{
+  "home": "Home",
+  "bower": "Bower",
+  "bowerio": "Bower.io",
+  "header": "Header",
+  "welcomeToBower": "Welcome to Bower.io",
+  "searchPackages": "Search Packages",
+  "search": "Search",
+  "searchPlaceholder": "Search...",
+  "latestRelease": "Latest Release",
+  "stars": "Stars",
+  "relevance": "Relevance",
+  "sourceRank": "SourceRank",
+  "dependents": "Dependents",
+  "mostUsed": "Most Used",
+  "contributers": "Contributers",
+  "newest": "Newest",
+  "errorMsgs": {
+    "notAbleFetchResults": "Not able to the Fetch the results"
+  }
+}

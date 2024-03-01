@@ -1,5 +1,6 @@
+import intl from '@/utils/locales/en.json';
 const Footer = () => {
-  return <div className='footer'>Bower.io</div>;
+  return <div className='footer'>{intl.bowerio}</div>;
 };
 
 export default Footer;

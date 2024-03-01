@@ -2,6 +2,7 @@ import Loader from '@/components/Loader';
 import SearchBar from '@/components/SearchBar';
 import SearchResults from '@/components/SearchResults';
 import { pluginSortOptions } from '@/constants/pluginSortOptions';
+import intl from '@/utils/locales/en.json';
 import { useSearchPlugin } from '@/utils/react-query/queries';
 import { ChangeEventHandler, useState } from 'react';
 
@@ -56,7 +57,7 @@ const SearchPage = () => {
     <>
       <div className='flex justify-center'>
         <div className='w-full md:w-9/12'>
-          <h2 className='text-center text-3xl m-4'>Search Packages</h2>
+          <h2 className='text-center text-3xl m-4'>{intl.searchPackages}</h2>
           <SearchBar onSearch={handleSearch} isLoading={isLoading || isFetching} />
           {isLoading || isFetching ? (
             <Loader size={40} />
@@ -70,7 +71,7 @@ const SearchPage = () => {
               )}
             </>
           )}
-          {isError && <div>Not able to the Fetch the results</div>}
+          {isError && <div>{intl.errorMsgs.notAbleFetchResults}</div>}
         </div>
       </div>
     </>
